@@ -32,6 +32,7 @@ def area_fraction(direction,dim,Dp,particles,x_part_domain,y_part_domain,z_part_
     y_array = np.arange(y_min,y_max+delta,delta)
     z_array = np.arange(z_min,z_max+delta,delta)
     
+    
     # Get the number of particles
     Np = len(particles)
 
@@ -63,14 +64,14 @@ def area_fraction(direction,dim,Dp,particles,x_part_domain,y_part_domain,z_part_
                     
                     area[i] = area[i] + ((np.pi)**(dim-2))*((Dp/2)**2-(particles[j,3]-y_array[i])**2)**(0.5*(dim-1)) 
                     
-                elif (abs(abs(particles[j,3]-abs(y_part_domain_len))-y_array[i]) <= Dp/2): # Periodic
+                # elif (abs(abs(particles[j,3]-abs(y_part_domain_len))-y_array[i]) <= Dp/2): # Periodic
                     
                     
-                    area[i] = area[i] + ((np.pi)**(dim-2))*((Dp/2)**2-((particles[j,3]-abs(y_part_domain_len))-y_array[i])**2)**(0.5*(dim-1))
+                #     area[i] = area[i] + ((np.pi)**(dim-2))*((Dp/2)**2-((particles[j,3]-abs(y_part_domain_len))-y_array[i])**2)**(0.5*(dim-1))
                     
-                elif (abs(abs(particles[j,3]+abs(y_part_domain_len))-y_array[i]) <= Dp/2): # Periodic
+                # elif (abs(abs(particles[j,3]+abs(y_part_domain_len))-y_array[i]) <= Dp/2): # Periodic
                     
-                    area[i] = area[i] + ((np.pi)**(dim-2))*((Dp/2)**2-((particles[j,3]+abs(y_part_domain_len))-y_array[i])**2)**(0.5*(dim-1))
+                #     area[i] = area[i] + ((np.pi)**(dim-2))*((Dp/2)**2-((particles[j,3]+abs(y_part_domain_len))-y_array[i])**2)**(0.5*(dim-1))
    
     elif direction == 3:
         
@@ -82,13 +83,13 @@ def area_fraction(direction,dim,Dp,particles,x_part_domain,y_part_domain,z_part_
                     
                     area[i] = area[i] + ((np.pi)**(dim-2))*((Dp/2)**2-(particles[j,4]-z_array[i])**2)**(0.5*(dim-1)) 
                     
-                elif (abs(abs(particles[j,4]-abs(z_part_domain_len))-z_array[i]) <= Dp/2): # Periodic
+                # elif (abs(abs(particles[j,4]-abs(z_part_domain_len))-z_array[i]) <= Dp/2): # Periodic
                     
-                    area[i] = area[i] + ((np.pi)**(dim-2))*((Dp/2)**2-((particles[j,4]-abs(z_part_domain_len))-z_array[i])**2)**(0.5*(dim-1))
+                #     area[i] = area[i] + ((np.pi)**(dim-2))*((Dp/2)**2-((particles[j,4]-abs(z_part_domain_len))-z_array[i])**2)**(0.5*(dim-1))
                     
-                elif (abs(abs(particles[j,4]+abs(z_part_domain_len))-z_array[i]) <= Dp/2): # Periodic
+                # elif (abs(abs(particles[j,4]+abs(z_part_domain_len))-z_array[i]) <= Dp/2): # Periodic
                     
-                    area[i] = area[i] + ((np.pi)**(dim-2))*((Dp/2)**2-((particles[j,4]+abs(z_part_domain_len))-z_array[i])**2)**(0.5*(dim-1))                
+                #     area[i] = area[i] + ((np.pi)**(dim-2))*((Dp/2)**2-((particles[j,4]+abs(z_part_domain_len))-z_array[i])**2)**(0.5*(dim-1))                
     
 
     # Computing the area fraction
@@ -130,7 +131,7 @@ def area_fraction(direction,dim,Dp,particles,x_part_domain,y_part_domain,z_part_
         
     ax.set_ylabel('Particle area fraction')
     
-    plt.rcParams.update({'font.size': 30})
+    plt.rcParams.update({'font.size': 20})
     
     plt.plot(mean_plot[:,0], mean_plot[:,1],'k-', lw=3,label="Mean area fraction")
     if direction == 1:
